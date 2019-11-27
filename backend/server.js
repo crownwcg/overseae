@@ -1,15 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const api = require('./routes/api');
 
 const app = express();
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send('COMING SOON');
-  console.log('response sent');
-});
+app.use('/api', api);
 
 const port = process.env.PORT || 8080
 app.listen(
-  port, 
+  port,
   () => console.log(`App listening on port ${port}!`));
